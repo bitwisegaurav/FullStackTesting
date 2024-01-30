@@ -14,6 +14,11 @@ var corsOptions = {
     optionsSuccessStatus: 200
 }
 
+var corsOptionsAll = {
+    origin: process.env.CORS_ORIGIN_ALL,
+    optionsSuccessStatus: 200
+}
+
 mongoose.connect(`${process.env.MONGODB_URL}/fullstacklearning`);
 
 const dataSchema = new mongoose.Schema({
@@ -36,11 +41,11 @@ app.get('/api/data', cors(corsOptions), async (req, res) => {
   }
 });
 
-app.get('/api/health', (req, res) => {
+app.get('/api/health', cors(corsOptionsAll), (req, res) => {
   res.status(200).send('Server is working!');
 });
 
-app.post('/api/store', async (req, res) => {
+app.post('/api/store', cors(corsOptions), async (req, res) => {
   try {
     const { name } = req.body;
     const newData = new Data({ name });
