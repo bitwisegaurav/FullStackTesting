@@ -27,7 +27,7 @@ const dataSchema = new mongoose.Schema({
 
 const Data = mongoose.model('Data', dataSchema);
 
-app.get('/api/data', cors(corsOptions), async (req, res) => {
+app.get('/', cors(corsOptions), async (req, res) => {
   try {
     const jsonData = {
         name: "Gaurav Mishra",
@@ -41,11 +41,11 @@ app.get('/api/data', cors(corsOptions), async (req, res) => {
   }
 });
 
-app.get('/api/health', cors(corsOptionsAll), (req, res) => {
+app.get('/health', cors(corsOptionsAll), (req, res) => {
   res.status(200).send('Server is working!');
 });
 
-app.post('/api/store', cors(corsOptions), async (req, res) => {
+app.post('/store', cors(corsOptions), async (req, res) => {
   try {
     const { name } = req.body;
     const newData = new Data({ name });
