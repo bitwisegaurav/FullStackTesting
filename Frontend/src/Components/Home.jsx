@@ -4,11 +4,11 @@ import axios from 'axios';
 const Home = () => {
   const [jsonData, setJsonData] = useState({});
 
-  useEffect(() => {
-    axios.get('http://localhost:5000/api/data')
-      .then(response => setJsonData(response.data))
-      .catch(error => console.error(error));
-  }, []);
+  // useEffect(() => {
+  //   axios.get('http://localhost:5000/api/data')
+  //     .then(response => setJsonData(response.data))
+  //     .catch(error => console.error(error));
+  // }, []);
 
   return (
     <div>

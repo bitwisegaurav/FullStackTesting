@@ -11,12 +11,12 @@ const Storage = () => {
   const handleSaveName = () => {
     const value = name;
     if(value.trim() === '') return;
-    axios.post('http://localhost:5000/api/store', { name })
-      .then(() => {
-        // console.log(response.data);
-        setName('');
-      })
-      .catch(error => console.error(error));
+    // axios.post('http://localhost:5000/api/store', { name })
+    //   .then(() => {
+    //     // console.log(response.data);
+    //     setName('');
+    //   })
+    //   .catch(error => console.error(error));
   };
 
   return (
